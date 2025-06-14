@@ -1,28 +1,17 @@
 // app/page.js
-import ProductCard from "@/app/components/ProductCard";
-import Head from "next/head";
+import ProductList from "@/app/components/ProductList";
 
 export const metadata = {
-  title: "Product Listing Page | Appscrip Task",
-  description: "A demo PLP page built by Gaurav Mishra for Appscrip",
+  title: "Appscrip PLP - Gaurav Mishra",
+  description: "SSR-enabled PLP using FakeStoreAPI with Cart and Wishlist",
 };
 
 async function getProducts() {
-  const res = await fetch('https://fakestoreapi.com/products', { cache: 'no-store' }); // SSR
+  const res = await fetch('https://fakestoreapi.com/products', { cache: 'no-store' });
   return res.json();
 }
 
 export default async function HomePage() {
   const products = await getProducts();
-
-  return (
-    <main>
-      <h1>Product Listing</h1>
-      <section className="product-grid">
-        {products.map((product) => (
-          <ProductCard key={product.id} data={product} />
-        ))}
-      </section>
-    </main>
-  );
+  return <ProductList products={products} />;
 }
