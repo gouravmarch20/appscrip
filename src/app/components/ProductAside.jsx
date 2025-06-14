@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import "./ProductAside.css";
+import "@/app/css/ProductAside.css";
 
 export default function ProductAside({ products, onFilter }) {
   const [searchTerm, setSearchTerm] = useState("");

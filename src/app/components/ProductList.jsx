@@ -1,8 +1,9 @@
 "use client";
 
 import ProductCard from "./ProductCard";
-  
-import "./ProductList.css";
+import "@/app/css/ProductList.css";
+
+
 export default function ProductList({ products , addToCart , addToWishlist }) { 
   
   return (

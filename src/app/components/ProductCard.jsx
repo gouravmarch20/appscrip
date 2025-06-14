@@ -1,5 +1,5 @@
 "use client";
-import  './ProductCard.css'
+import  '@/app/css/ProductCard.css'
 export default function ProductCard({ data, addToCart, addToWishlist }) {
   return (
     <div className="product-card">
