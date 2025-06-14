@@ -1,0 +1,15 @@
+.topbar {
+  background: #000;
+  color: #f55;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 20px;
+  font-size: 12px;
+  width: 100%;
+}
+
+.topbar-left,
+.topbar-right {
+  display: flex;
+  gap: 20px;
+}

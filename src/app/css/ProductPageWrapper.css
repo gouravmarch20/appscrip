@@ -1,0 +1,13 @@
+.product-page-wrapper {
+  padding: 20px;
+}
+.product-aside_wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 448px) {
+  .product-aside_wrapper {
+    flex-direction: column;
+  }
+}

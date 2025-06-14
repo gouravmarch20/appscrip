@@ -69,6 +69,49 @@
 }
 
 /* Drawer Content */
+/* Drawer Common */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 320px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+.drawer.open {
+  right: 0;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: #e60000;
+}
+
+/* Drawer Content */
 .drawer-item {
   display: flex;
   flex-direction: column;
@@ -114,5 +157,10 @@
 @media (max-width: 500px) {
   .drawer {
     width: 100%;
+    right: -100%;
+  }
+
+  .drawer.open {
+    right: 0;
   }
 }

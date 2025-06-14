@@ -1,15 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ProductAside.css";
 
 export default function ProductAside({ products, onFilter }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortType, setSortType] = useState("recent");
+  const [priceRange, setPriceRange] = useState([0, 200]); // [min, max]
 
-  // Get unique categories
   const categories = ["all", ...new Set(products.map((item) => item.category))];
+
+  useEffect(() => {
+    handleFilter();
+  }, [searchTerm, selectedCategory, sortType, priceRange]);
 
   const handleFilter = () => {
     let filtered = [...products];
@@ -21,10 +25,15 @@ export default function ProductAside({ products, onFilter }) {
       );
     }
 
-    // Category filter
+    // Category
     if (selectedCategory !== "all") {
       filtered = filtered.filter((item) => item.category === selectedCategory);
     }
+
+    // Price range
+    filtered = filtered.filter(
+      (item) => item.price >= priceRange[0] && item.price <= priceRange[1]
+    );
 
     // Sorting
     switch (sortType) {
@@ -53,31 +62,28 @@ export default function ProductAside({ products, onFilter }) {
     onFilter(filtered);
   };
 
-  // Apply filter when any changes
-  const handleChange = () => {
-    handleFilter();
+  const handleSliderChange = (e) => {
+    const { name, value } = e.target;
+    const newRange = [...priceRange];
+    if (name === "min") newRange[0] = Number(value);
+    if (name === "max") newRange[1] = Number(value);
+    if (newRange[0] <= newRange[1]) setPriceRange(newRange);
   };
 
   return (
     <aside className="aside">
-      <h3>Filter & Sort</h3>
+      <h3>Search & Filter</h3>
 
       <input
         type="text"
         placeholder="Search by title..."
         value={searchTerm}
-        onChange={(e) => {
-          setSearchTerm(e.target.value);
-          handleChange();
-        }}
+        onChange={(e) => setSearchTerm(e.target.value)}
       />
 
       <select
         value={selectedCategory}
-        onChange={(e) => {
-          setSelectedCategory(e.target.value);
-          handleChange();
-        }}
+        onChange={(e) => setSelectedCategory(e.target.value)}
       >
         {categories.map((cat, idx) => (
           <option key={idx} value={cat}>
@@ -86,12 +92,29 @@ export default function ProductAside({ products, onFilter }) {
         ))}
       </select>
 
+      <div className="price-filter">
+        <p>Price Range: ${priceRange[0]} - ${priceRange[1]}</p>
+        <input
+          type="range"
+          name="min"
+          min="0"
+          max="200"
+          value={priceRange[0]}
+          onChange={handleSliderChange}
+        />
+        <input
+          type="range"
+          name="max"
+          min="0"
+          max="200"
+          value={priceRange[1]}
+          onChange={handleSliderChange}
+        />
+      </div>
+
       <select
         value={sortType}
-        onChange={(e) => {
-          setSortType(e.target.value);
-          handleChange();
-        }}
+        onChange={(e) => setSortType(e.target.value)}
       >
         <option value="recent">Recently Added</option>
         <option value="priceLowHigh">Price: Low to High</option>

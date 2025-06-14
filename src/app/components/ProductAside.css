@@ -1,5 +1,5 @@
 .aside {
-    width: 250px;
+    width: 15vw;
     padding: 20px;
     background: #f7f7f7;
     border-radius: 8px;
@@ -26,3 +26,9 @@
     border-color: #333;
     outline: none;
   }
+  @media (max-width: 448px) {
+    .aside {
+      width: 80%;
+    }
+  }
+  
