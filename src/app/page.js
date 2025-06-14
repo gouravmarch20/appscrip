@@ -1,5 +1,5 @@
 // app/page.js
-import ProductList from "@/app/components/ProductList";
+import ProductPageWrapper from "@/app/components/ProductPageWrapper";
 
 export const metadata = {
   title: "Appscrip PLP - Gaurav Mishra",
@@ -13,5 +13,5 @@ async function getProducts() {
 
 export default async function HomePage() {
   const products = await getProducts();
-  return <ProductList products={products} />;
+  return <ProductPageWrapper products={products} />;
 }

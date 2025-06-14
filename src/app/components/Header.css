@@ -1,0 +1,118 @@
+/* Header Styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.icons button {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 8px 12px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.icons button:hover {
+  background: #fff;
+  color: #1e1e1e;
+}
+
+/* Drawer Common */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 320px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.drawer.open {
+  right: 0;
+}
+
+/* Drawer Close Button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.close-btn:hover {
+  background: #e60000;
+}
+
+/* Drawer Content */
+.drawer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.drawer-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+.drawer-item p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.drawer-item button {
+  padding: 4px 8px;
+  margin: 4px 2px;
+  background: #1e1e1e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.drawer-item button:hover {
+  background: #333;
+}
+
+/* Total Price */
+.drawer h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Responsive Drawer */
+@media (max-width: 500px) {
+  .drawer {
+    width: 100%;
+  }
+}
