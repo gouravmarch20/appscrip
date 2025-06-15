@@ -27,7 +27,7 @@ export default function ProductPageWrapper({ products }) {
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   return (
-    <div>
+    <div className="product-page-wrapper">
       {/* <h1>sfad {cart.length}</h1> */}
       <TopBar />
       <MainHeader />

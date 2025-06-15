@@ -20,7 +20,7 @@ export default function MainHeader() {
         <span>🤍</span>
         <span>🛍️</span>
         <span>👤</span>
-        <span>ENG ⌄</span>
+        <span>ENG </span>
       </div>
     </header>
   );

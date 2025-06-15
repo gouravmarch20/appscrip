@@ -3,7 +3,7 @@ import  '@/app/css/ProductCard.css'
 export default function ProductCard({ data, addToCart, addToWishlist }) {
   return (
     <div className="product-card">
-      <img src={data.image} alt={`Image of ${data.title}`} />
+      <img src={data.image} alt={`Image of ${data.title}`} loading='lazy' />
       <h2>{data.title}</h2>
       <p>${data.price}</p>
       <button onClick={() => addToCart(data)}>Add to Cart</button>
