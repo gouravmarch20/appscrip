@@ -14,8 +14,9 @@
   font-weight: bold;
 }
 
-.icons button {
-  background-color: #4caf50;
+.icons button,
+.filter-button {
+   background-color: #4caf50;
   color: white;
   padding: 8px 15px;
   margin-left: 10px;
@@ -25,7 +26,7 @@
   transition: background-color 0.3s ease;
 }
 
-.icons button:hover {
+.icons button:hover , .filter-button:hover {
   background-color: #45a049;
 }
 

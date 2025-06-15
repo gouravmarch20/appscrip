@@ -2,8 +2,8 @@
     padding: 20px;
     background: #f7f7f7;
     border-radius: 8px;
-    height: fit-content;
-    
+    /* height: fit-content; */
+
   }
   
   .aside h3 {
@@ -16,7 +16,7 @@
     padding: 8px;
     border-radius: 4px;
     border: 1px solid #ccc;
-    width:100%
+    
   }
   
   .aside input:focus,
@@ -29,4 +29,6 @@
       width: 80%;
     }
   }
-  
+  .invisible{
+    display: none;
+  }

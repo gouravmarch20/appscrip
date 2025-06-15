@@ -10,5 +10,7 @@
 @media (max-width: 448px) {
   .product-aside_wrapper {
     flex-direction: column;
+    justify-content: center;
+    place-items: center;
   }
 }

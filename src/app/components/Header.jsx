@@ -16,18 +16,28 @@ export default function Header({
 }) {
   const [showCart, setShowCart] = useState(false);
   const [showWishlist, setShowWishlist] = useState(false);
-
+  const [showFilter , setShowFilter] = useState(false)
   const cartRef = useRef(null);
   const wishlistRef = useRef(null);
 
+  const filter = document.querySelector('.aside')
   // Close drawers on outside click
   useOutsideClick(cartRef, () => setShowCart(false));
   useOutsideClick(wishlistRef, () => setShowWishlist(false));
-
+  function handleFilterChange(){
+    setShowFilter(prev=>!prev)
+    showFilter?filter.classList.add('invisible'):filter.classList.remove('invisible')
+  }
   return (
     <>
       <header className="header">
-        <h1 className="logo">My Store</h1>
+        {/* <h1 className="logo">My Store</h1> */}
+        <button
+          className='filter-button'
+          onClick={handleFilterChange}
+        >
+          {showFilter?'Hide Filter':'Show Filter'}
+        </button>
         <div className="icons">
           <button onClick={() => setShowWishlist(true)}>
             Wishlist ({wishlist.length})

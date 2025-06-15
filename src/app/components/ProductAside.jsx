@@ -71,7 +71,7 @@ export default function ProductAside({ products, onFilter }) {
   };
 
   return (
-    <aside className="aside">
+    <aside className="aside invisible">
       <h3>Search & Filter</h3>
 
       <input
